@@ -1,0 +1,7 @@
+{
+    "mongo-host":"localhost",
+    "mongo-port":"27017",
+    "mongo-db":"test",
+    "server-host":"localhost",
+    "server-port":"3000"
+}

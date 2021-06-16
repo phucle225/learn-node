@@ -10,11 +10,37 @@ var adminSchema = new Schema({
 
 const admin = mongoose.model('admin',adminSchema)
 
-function GetByDefault(username,password){
-    console.log("log mongo: ",username,password)
-    admin.findOne({username: '123'}, function(err,obj) { console.log(obj); });
+function GetByDefault(username,password,callback){
+    // console.log("log mongo: ",username,password)
+    admin.findOne({username: username,password:password},function(err, userObj){
+        if(err){
+            return callback(err,null);
+        }
+        return callback(null,userObj)
+    })
+}
+
+function Add(username,password,callback){
+    var person = new admin({username: username,password:password})
+    person.save(function (err) {
+            if (err){
+                return callback(err)
+            }
+            return callback(null)
+          });
+}
+
+function Delete(username,password,callback){
+    admin.deleteOne({username: username,password:password},function(err){
+        if(err){
+            return callback(err);
+        }
+        return callback(null)
+    })
 }
 
 module.exports={
-    GetByDefault
+    GetByDefault,
+    Add,
+    Delete
 }
