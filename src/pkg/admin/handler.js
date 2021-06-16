@@ -36,11 +36,13 @@ user_router.post('/get', function(req, res) {
 user_router.post('/delete', function(req, res) {
     username=req.body.username
     password=req.body.password
-    user=service.Delete(username,password,(error,user)=>{
+    service.Delete(username,password,(error,user)=>{
         if (error){
             console.log("error: %s",error)
         }
-        res.send(user)
+        res.json({
+            "code":0
+        })
     })
     
 });

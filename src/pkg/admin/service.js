@@ -14,7 +14,7 @@ function Add(username,password,callback){
 }
 
 function Delete(username,password,callback){
-    admindb.GetByDefault(username,password,(error)=>{
+    admindb.Delete(username,password,(error)=>{
         callback(error)
     })
     console.log("log service: ",username,password)
