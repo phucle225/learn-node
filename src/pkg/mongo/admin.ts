@@ -5,6 +5,7 @@ import {config} from "../../config/config";
 
 const Schema = monoose.Schema;
 
+// Nên tận dụng logic validation ở đây
 export let adminSchema = new Schema({
     username: {
         type: String,

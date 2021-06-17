@@ -1,6 +1,7 @@
 import {AppError} from "../internals/errors";
 import {Type} from "class-transformer";
 
+// Implement business logic ở đây
 export class RequestAdd {
     username: string
     password: string

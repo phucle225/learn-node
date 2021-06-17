@@ -13,7 +13,8 @@ adminRouter.post("/login", Login)
 
 
 
-
+// Ở đây chỉ nên đọc request ra internal type và return response type
+// Tên function viết thường
 function Add(req: Request, res: Response) {
     let {username, password} = req.body
     if (username == undefined || password == undefined || username.length == 0 || password.length == 0) {

@@ -1,3 +1,5 @@
+// Implement business logic ở model thay vì service
+
 import {RequestAdd, RequestLogin, ResponseAdd, ResponseLogin} from "./models";
 import {AppError} from "../internals/errors";
 import * as mongoAdmin from "../mongo/admin";
