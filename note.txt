@@ -1,0 +1,7 @@
+npm install --save-dev @types/node @types/express
+npm install -D express
+
+"scripts": {
+"prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+"prestart": "npm run build",
+}
