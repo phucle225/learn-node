@@ -16,10 +16,10 @@ export let adminSchema = new Schema({
 
 const admin = monoose.model('admin', adminSchema)
 
-export function Add(username: string, password: string): { index: string, error: Error } {
+    export async function Add(username: string, password: string): Promise<{ index: string, error: Error }> {
     let error: Error = null
     let person = new admin({username: username, password: password})
-    person.save((err, object) => {
+    await person.save((err, object) => {
         if (err) {
             error = err
             console.log(error)

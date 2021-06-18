@@ -6,6 +6,7 @@ exports.config = ({
     mongoPort: "27017",
     mongoDB: "test",
     serverHost: "localhost",
-    serverPost: "3000"
+    serverPost: "3000",
+    redisPort: "6379"
 });
 //# sourceMappingURL=config.js.map

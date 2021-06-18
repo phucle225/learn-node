@@ -40,9 +40,9 @@ export class Service {
             response.error = new AppError(2, "internal server error", error)
             return response
         }
-        if (person != null) {
-            response.id = monoose.Schema(person).id
-        }
+        // if (person != null) {
+        //     response.id = monoose.Schema(person).id
+        // }
         return response
     }
 }

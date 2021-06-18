@@ -61,3 +61,6 @@
 {"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
 {"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null},\"id\":\"60cb0cad7bec0acca4095c49\"}","level":"info"}
 {"message":"duration execute func: 5.799706999212503","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null},\"id\":\"\"}","level":"info"}
+{"message":"duration execute func: 6.184686996042728","level":"info"}

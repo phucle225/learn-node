@@ -44,6 +44,27 @@ class Service {
         response.id = index;
         return response;
     }
+    Login(request) {
+        let response = new models_1.ResponseLogin();
+        response.error = new errors_1.AppError(0, "", null);
+        //check invalid
+        try {
+            request.invalid();
+        }
+        catch (e) {
+            response.error = new errors_1.AppError(1, "request invalid", e);
+            return response;
+        }
+        let { person, error } = mongoAdmin.Login(request.username, request.password);
+        if (error != null) {
+            response.error = new errors_1.AppError(2, "internal server error", error);
+            return response;
+        }
+        // if (person != null) {
+        //     response.id = monoose.Schema(person).id
+        // }
+        return response;
+    }
 }
 exports.Service = Service;
 //# sourceMappingURL=service.js.map

@@ -17,6 +17,17 @@ class Logging extends service_1.Service {
         delete response.id;
         return response;
     }
+    Login(request) {
+        let timeStart = perf_hooks_1.performance.now();
+        let response = super.Login(request);
+        init_1.logger.info(`request: ${JSON.stringify(request)}`);
+        init_1.logger.info(`response: ${JSON.stringify(response)}`);
+        init_1.logger.info(`duration execute func: ${perf_hooks_1.performance.now() - timeStart}`);
+        //remove err in object
+        delete response.error.err;
+        // delete response.id
+        return response;
+    }
 }
 exports.Logging = Logging;
 //# sourceMappingURL=logging.js.map

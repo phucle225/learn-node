@@ -32,6 +32,7 @@ exports.adminRouter = express_1.default.Router();
 var logging = new logging_1.Logging();
 //-router
 exports.adminRouter.post("/add", Add);
+exports.adminRouter.post("/login", Login);
 function Add(req, res) {
     let { username, password } = req.body;
     if (username == undefined || password == undefined || username.length == 0 || password.length == 0) {
@@ -41,6 +42,17 @@ function Add(req, res) {
     let requestModel = new models.RequestAdd(username, password);
     // console.log(requestModel)
     let respData = logging.Add(requestModel);
+    response_1.WriteResponse(res, 200, respData);
+}
+function Login(req, res) {
+    let { username, password } = req.body;
+    if (username == undefined || password == undefined || username.length == 0 || password.length == 0) {
+        response_1.WriteResponse(res, 400, null);
+        return;
+    }
+    let requestModel = new models.RequestLogin(username, password);
+    // console.log(requestModel)
+    let respData = logging.Login(requestModel);
     response_1.WriteResponse(res, 200, respData);
 }
 //# sourceMappingURL=handle.js.map
