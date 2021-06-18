@@ -8,33 +8,21 @@ import {WriteResponse} from "../internals/response";
 export let adminRouter = express.Router();
 var logging = new Logging()
 //-router
-adminRouter.post("/add", Add)
-adminRouter.post("/login", Login)
+adminRouter.post("/add", addUser)
+adminRouter.post("/login", login)
 
 
-
-
-function Add(req: Request, res: Response) {
-    let {username, password} = req.body
-    if (username == undefined || password == undefined || username.length == 0 || password.length == 0) {
-        WriteResponse(res, 400, null)
-        return
-    }
-    let requestModel = new models.RequestAdd(username, password)
-    // console.log(requestModel)
-    let respData = logging.Add(requestModel)
-    WriteResponse(res, 200, respData)
+// Ở đây chỉ nên đọc request ra internal type và return response type
+// Tên function viết thường
+async function addUser(req: Request, res: Response) {
+    let requestData = new models.RequestAdd(req.body)
+    let respData = await logging.add(requestData)
+    return WriteResponse(res,respData.error.statusCode, respData)
 }
 
 
-function Login(req: Request, res: Response) {
-    let {username, password} = req.body
-    if (username == undefined || password == undefined || username.length == 0 || password.length == 0) {
-        WriteResponse(res, 400, null)
-        return
-    }
-    let requestModel = new models.RequestLogin(username, password)
-    // console.log(requestModel)
-    let respData = logging.Login(requestModel)
-    WriteResponse(res, 200, respData)
+async function login(req: Request, res: Response) {
+    let requestModel = new models.RequestLogin(req.body)
+    let respData = await logging.login(requestModel)
+    return WriteResponse(res,respData.error.statusCode, respData)
 }

@@ -1,45 +1,51 @@
+// Implement business logic ở model thay vì service
+
 import {RequestAdd, RequestLogin, ResponseAdd, ResponseLogin} from "./models";
 import {AppError} from "../internals/errors";
 import * as mongoAdmin from "../mongo/admin";
 import monoose from "mongoose";
+import {promises} from "dns";
+import {add} from "../mongo/admin";
 
 export class Service {
-    Add(request: RequestAdd): ResponseAdd {
+    async add(request: RequestAdd): Promise<ResponseAdd> {
         let response = new ResponseAdd()
-        response.error = new AppError(0, "", null)
+        response.error = new AppError(0, "", 200, null)
         //check invalid
         try {
             request.invalid()
         } catch (e) {
-            response.error = new AppError(1, "request invalid", e)
+            response.error = new AppError(1, "request invalid", 400, e)
             return response
         }
-        let {index, error} = mongoAdmin.Add(request.username, request.password)
-        console.log(`index ${index}--- error : ${error}`)
-        if (error != null) {
-            response.error = new AppError(2, "internal server error", error)
-            return response
-        }
-        response.id = index
-
+        await mongoAdmin.add(request.username, request.password)
+            .then((object) => {
+                // response.id = object
+            }).catch((err) => {
+                response.error = new AppError(2, "internal server error", 400, err)
+                return response
+            })
         return response
     }
 
-    Login(request: RequestLogin): ResponseLogin {
+    async login(request: RequestLogin): Promise<ResponseLogin> {
         let response = new ResponseLogin()
-        response.error = new AppError(0, "", null)
+        response.error = new AppError(0, "", 200, null)
         //check invalid
         try {
             request.invalid()
         } catch (e) {
-            response.error = new AppError(1, "request invalid", e)
+            response.error = new AppError(1, "request invalid", 400, e)
             return response
         }
-        let {person, error} = mongoAdmin.Login(request.username, request.password)
-        if (error != null) {
-            response.error = new AppError(2, "internal server error", error)
+         await mongoAdmin.login(request.username, request.password)
+            .then((object) => {
+                // response.id = object
+                console.log(object.toString())
+            }).catch((err) => {
+            response.error = new AppError(2, "internal server error", 400, err)
             return response
-        }
+        })
         // if (person != null) {
         //     response.id = monoose.Schema(person).id
         // }

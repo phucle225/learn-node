@@ -8,8 +8,10 @@ const express_1 = __importDefault(require("express"));
 const init_1 = require("./pkg/init");
 const handle_1 = require("./pkg/admin/handle");
 const config_1 = require("./config/config");
+const handle_2 = require("./pkg/graphql/handle");
 init_1.app.use(express_1.default.json());
 init_1.app.use("/admin", handle_1.adminRouter);
+init_1.app.use("/graphql", handle_2.graphql);
 init_1.app.listen(config_1.config.serverPost, () => {
     console.log(`⚡️[server]: Server is running at https://localhost:${config_1.config.serverPost}`);
 });

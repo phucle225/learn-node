@@ -1,14 +1,25 @@
 import {AppError} from "../internals/errors";
 import {Type} from "class-transformer";
 
+abstract class response {
+    error: AppError
+}
+
+// Implement business logic ở đây
 export class RequestAdd {
-    username: string
-    password: string
+    username: string = ""
+    password: string = ""
 
-    constructor(username: string, password: string) {
-        this.username = username
-        this.password = password
-
+    constructor(object: { username: string, password: string }) {
+        // let {username, password} = object
+        // if (username != undefined && password != undefined) {
+        //     this.username = username
+        //     this.password = password
+        // } else {
+        //     this.username = ""
+        //     this.password = ""
+        // }
+        Object.assign(this, object) //==> add to field
     }
 
     invalid() {
@@ -18,20 +29,17 @@ export class RequestAdd {
     }
 }
 
-export class ResponseAdd {
-    id: string
-    error: AppError
+export class ResponseAdd extends response{
+    //to do
 }
 
 
 export class RequestLogin {
-    username: string
-    password: string
+    username: string = ""
+    password: string = ""
 
-    constructor(username: string, password: string) {
-        this.username = username
-        this.password = password
-
+    constructor(object: { username: string, password: string }) {
+        Object.assign(this, object)
     }
 
     invalid() {
@@ -41,7 +49,6 @@ export class RequestLogin {
     }
 }
 
-export class ResponseLogin {
+export class ResponseLogin extends response{
     id: string
-    error: AppError
 }

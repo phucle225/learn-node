@@ -64,3 +64,100 @@
 {"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
 {"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null},\"id\":\"\"}","level":"info"}
 {"message":"duration execute func: 6.184686996042728","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.4305929988622665","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.315634995698929","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.5544010028243065","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.972589001059532","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.3339120000600815","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.325887992978096","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.399701997637749","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 5.398530997335911","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":0,\"msg\":\"\",\"err\":null}}","level":"info"}
+{"message":"duration execute func: 0.7031409963965416","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":2,\"msg\":\"internal server error\",\"err\":{\"driver\":true,\"name\":\"MongoError\",\"index\":0,\"code\":11000,\"keyPattern\":{\"username\":1},\"keyValue\":{\"username\":\"123\"}}}}","level":"info"}
+{"message":"duration execute func: 10.895771004259586","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":2,\"msg\":\"internal server error\",\"err\":{\"driver\":true,\"name\":\"MongoError\",\"index\":0,\"code\":11000,\"keyPattern\":{\"username\":1},\"keyValue\":{\"username\":\"123\"}}}}","level":"info"}
+{"message":"duration execute func: 2.66372100263834","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":2,\"msg\":\"internal server error\",\"err\":{\"driver\":true,\"name\":\"MongoError\",\"index\":0,\"code\":11000,\"keyPattern\":{\"username\":1},\"keyValue\":{\"username\":\"123\"}}}}","level":"info"}
+{"message":"duration execute func: 10.974817000329494","level":"info"}
+{"message":"request: {\"username\":\"\",\"password\":\"123\",\"sername\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":1,\"msg\":\"request invalid\",\"err\":{}}}","level":"info"}
+{"message":"duration execute func: 2.228542998433113","level":"info"}
+{"message":"request: {\"username\":\"\",\"password\":\"123\",\"sername\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":1,\"msg\":\"request invalid\",\"err\":{}}}","level":"info"}
+{"message":"duration execute func: 0.38754700124263763","level":"info"}
+{"message":"request: {\"username\":\"123\",\"password\":\"123\"}","level":"info"}
+{"message":"response: {\"error\":{\"code\":2,\"msg\":\"internal server error\",\"err\":{\"driver\":true,\"name\":\"MongoError\",\"index\":0,\"code\":11000,\"keyPattern\":{\"username\":1},\"keyValue\":{\"username\":\"123\"}}}}","level":"info"}
+{"message":"duration execute func: 9.761588998138905","level":"info"}
+2021-06-18T07:20:26.197Z [right meow!] info: request: {"username":"123","password":"123"}
+2021-06-18T07:20:26.199Z [right meow!] info: response: {"error":{"code":2,"msg":"internal server error","err":{"driver":true,"name":"MongoError","index":0,"code":11000,"keyPattern":{"username":1},"keyValue":{"username":"123"}}}}
+2021-06-18T07:20:26.199Z [right meow!] info: duration execute func: 11.231695003807545
+2021-06-18T07:22:31.887Z [undefined] info: request: {"username":"123","password":"123"}
+2021-06-18T07:22:31.888Z [undefined] info: response: [object Object]
+2021-06-18T07:22:31.888Z [undefined] info: duration execute func: 11.161413006484509
+2021-06-18T07:25:41.614Z [undefined] info: request: {"username":"123","password":"123"}
+2021-06-18T07:25:41.615Z [undefined] info: response: {"error":{"code":2,"msg":"internal server error","err":"MongoError: E11000 duplicate key error collection: test.admins index: username_1 dup key: { username: \"123\" }"}}
+2021-06-18T07:25:41.615Z [undefined] info: duration execute func: 11.196545995771885
+2021-06-18T07:29:35.362Z [v1] info: request: {"username":"123","password":"123"}
+2021-06-18T07:29:35.363Z [v1] info: response: {"error":{"code":2,"msg":"internal server error","err":"MongoError: E11000 duplicate key error collection: test.admins index: username_1 dup key: { username: \"123\" }"}}
+2021-06-18T07:29:35.363Z [v1] info: duration execute func: 10.83584700524807
+2021-06-18T07:37:04.175Z [v1] info: request: {"username":"123","password":"123"}
+2021-06-18T07:37:04.177Z [v1] info: response: {"error":{"code":2,"msg":"internal server error","err":"MongoError: E11000 duplicate key error collection: test.admins index: username_1 dup key: { username: \"123\" }"}}
+2021-06-18T07:37:04.177Z [v1] info: duration execute func: 11.389464996755123
+6/18/2021, 2:39:38 PM [v1] info: request: {"username":"123","password":"123"}
+6/18/2021, 2:39:38 PM [v1] info: response: {"error":{"code":2,"msg":"internal server error","err":"MongoError: E11000 duplicate key error collection: test.admins index: username_1 dup key: { username: \"123\" }"}}
+6/18/2021, 2:39:38 PM [v1] info: duration execute func: 23.025495000183582
+6/18/2021, 2:39:59 PM [v1] info: request: {"username":"123","password":"123"}
+6/18/2021, 2:39:59 PM [v1] info: response: {"error":{"code":2,"msg":"internal server error","err":"MongoError: E11000 duplicate key error collection: test.admins index: username_1 dup key: { username: \"123\" }"}}
+6/18/2021, 2:39:59 PM [v1] info: duration execute func: 3.2273309975862503
+6/18/2021, 2:40:04 PM [v1] info: request: {"username":"123","password":"123"}
+6/18/2021, 2:40:04 PM [v1] info: response: {"error":{"code":2,"msg":"internal server error","err":"MongoError: E11000 duplicate key error collection: test.admins index: username_1 dup key: { username: \"123\" }"}}
+6/18/2021, 2:40:04 PM [v1] info: duration execute func: 2.402216002345085
+6/18/2021, 2:49:02 PM [v1] info: request: {"username":"123","password":"123"}
+6/18/2021, 2:49:02 PM [v1] info: response: {"error":{"code":2,"msg":"internal server error","err":"MongoError: E11000 duplicate key error collection: test.admins index: username_1 dup key: { username: \"123\" }","statusCode":400}}
+6/18/2021, 2:49:02 PM [v1] info: duration execute func: 23.08618699759245
+6/18/2021, 2:59:30 PM [v1] info: request: {"username":"123","password":"123"}
+6/18/2021, 2:59:30 PM [v1] info: response: {"error":{"code":0,"msg":"","err":"","statusCode":200}}
+6/18/2021, 2:59:30 PM [v1] info: duration execute func: 15.385554000735283
+6/18/2021, 3:00:12 PM [v1] info: request: {"username":"123","password":"123"}
+6/18/2021, 3:00:12 PM [v1] info: response: {"error":{"code":0,"msg":"","err":"","statusCode":200}}
+6/18/2021, 3:00:12 PM [v1] info: duration execute func: 15.682157002389431
+6/18/2021, 3:00:26 PM [v1] info: request: {"username":"12","password":"123"}
+6/18/2021, 3:00:26 PM [v1] info: response: {"error":{"code":0,"msg":"","err":"","statusCode":200}}
+6/18/2021, 3:00:26 PM [v1] info: duration execute func: 0.9742479994893074
+6/18/2021, 3:01:10 PM [v1] info: request: {"username":"12","password":"123"}
+6/18/2021, 3:01:10 PM [v1] info: response: {"error":{"code":0,"msg":"","err":"","statusCode":200}}
+6/18/2021, 3:01:10 PM [v1] info: duration execute func: 15.863509997725487
+6/18/2021, 3:05:47 PM [v1] info: request: {"username":"12","password":"123"}
+6/18/2021, 3:05:47 PM [v1] info: response: {"error":{"code":0,"msg":"","err":"","statusCode":200}}
+6/18/2021, 3:05:47 PM [v1] info: duration execute func: 21.795034997165203
+6/18/2021, 3:11:05 PM [v1] info: request: {"username":"12","password":"123"}
+6/18/2021, 3:11:05 PM [v1] info: response: {"error":{"code":2,"msg":"internal server error","err":"TypeError: Cannot read property 'id' of null","statusCode":400}}
+6/18/2021, 3:11:05 PM [v1] info: duration execute func: 21.990433000028133
+6/18/2021, 3:11:36 PM [v1] info: request: {"username":"12","password":"123"}
+6/18/2021, 3:11:36 PM [v1] info: response: {"error":{"code":0,"msg":"","err":"","statusCode":200}}
+6/18/2021, 3:11:36 PM [v1] info: duration execute func: 21.54389599710703
+6/18/2021, 3:12:36 PM [v1] info: request: {"username":"123","password":"123"}
+6/18/2021, 3:12:36 PM [v1] info: response: {"error":{"code":0,"msg":"","err":"","statusCode":200}}
+6/18/2021, 3:12:36 PM [v1] info: duration execute func: 7.551155000925064

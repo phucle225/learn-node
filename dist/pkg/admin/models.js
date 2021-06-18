@@ -1,10 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResponseLogin = exports.RequestLogin = exports.ResponseAdd = exports.RequestAdd = void 0;
+class response {
+}
+// Implement business logic ở đây
 class RequestAdd {
-    constructor(username, password) {
-        this.username = username;
-        this.password = password;
+    constructor(object) {
+        this.username = "";
+        this.password = "";
+        // let {username, password} = object
+        // if (username != undefined && password != undefined) {
+        //     this.username = username
+        //     this.password = password
+        // } else {
+        //     this.username = ""
+        //     this.password = ""
+        // }
+        Object.assign(this, object); //==> add to field
     }
     invalid() {
         if (this.username.length == 0 || this.password.length == 0) {
@@ -13,13 +25,14 @@ class RequestAdd {
     }
 }
 exports.RequestAdd = RequestAdd;
-class ResponseAdd {
+class ResponseAdd extends response {
 }
 exports.ResponseAdd = ResponseAdd;
 class RequestLogin {
-    constructor(username, password) {
-        this.username = username;
-        this.password = password;
+    constructor(object) {
+        this.username = "";
+        this.password = "";
+        Object.assign(this, object);
     }
     invalid() {
         if (this.username.length == 0 || this.password.length == 0) {
@@ -28,7 +41,7 @@ class RequestLogin {
     }
 }
 exports.RequestLogin = RequestLogin;
-class ResponseLogin {
+class ResponseLogin extends response {
 }
 exports.ResponseLogin = ResponseLogin;
 //# sourceMappingURL=models.js.map

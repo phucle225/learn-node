@@ -18,6 +18,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -31,28 +40,22 @@ const response_1 = require("../internals/response");
 exports.adminRouter = express_1.default.Router();
 var logging = new logging_1.Logging();
 //-router
-exports.adminRouter.post("/add", Add);
-exports.adminRouter.post("/login", Login);
-function Add(req, res) {
-    let { username, password } = req.body;
-    if (username == undefined || password == undefined || username.length == 0 || password.length == 0) {
-        response_1.WriteResponse(res, 400, null);
-        return;
-    }
-    let requestModel = new models.RequestAdd(username, password);
-    // console.log(requestModel)
-    let respData = logging.Add(requestModel);
-    response_1.WriteResponse(res, 200, respData);
+exports.adminRouter.post("/add", addUser);
+exports.adminRouter.post("/login", login);
+// Ở đây chỉ nên đọc request ra internal type và return response type
+// Tên function viết thường
+function addUser(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let requestData = new models.RequestAdd(req.body);
+        let respData = yield logging.add(requestData);
+        return response_1.WriteResponse(res, respData.error.statusCode, respData);
+    });
 }
-function Login(req, res) {
-    let { username, password } = req.body;
-    if (username == undefined || password == undefined || username.length == 0 || password.length == 0) {
-        response_1.WriteResponse(res, 400, null);
-        return;
-    }
-    let requestModel = new models.RequestLogin(username, password);
-    // console.log(requestModel)
-    let respData = logging.Login(requestModel);
-    response_1.WriteResponse(res, 200, respData);
+function login(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let requestModel = new models.RequestLogin(req.body);
+        let respData = yield logging.login(requestModel);
+        return response_1.WriteResponse(res, respData.error.statusCode, respData);
+    });
 }
 //# sourceMappingURL=handle.js.map

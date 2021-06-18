@@ -1,10 +1,9 @@
 import monoose from "mongoose";
 //----
-import {mongo} from "../init";
-import {config} from "../../config/config";
 
 const Schema = monoose.Schema;
 
+// Nên tận dụng logic validation ở đây , tai vi struct request # struct save mongodb
 export let adminSchema = new Schema({
     username: {
         type: String,
@@ -16,30 +15,27 @@ export let adminSchema = new Schema({
 
 const admin = monoose.model('admin', adminSchema)
 
-    export async function Add(username: string, password: string): Promise<{ index: string, error: Error }> {
-    let error: Error = null
+export async function add(username: string, password: string): Promise<string> {
+    let index: string = ""
+    // let error: Error = null
     let person = new admin({username: username, password: password})
-    await person.save((err, object) => {
-        if (err) {
-            error = err
-            console.log(error)
-            return
-        }
-    });
-    let index: string = person.id
-    console.log(error)
-    return {index: index, error: error}
+    // Tìm cách làm theo promise thay vì callback
+    await person.save().then((object) => {
+        index = object.id
+    }).catch((err) => {
+        if (err) throw err
+    })
+    return index
 }
 
-export function Login(username: string, password: string): { person: object, error: Error } {
-    let error: Error = null
-    let person = admin.findOne({username: username, password: password}, {}, {},
-        (err, object) => {
-            if (err) {
-                error = err
-                return
-            }
+export async function login(username: string, password: string): Promise<object> {
+    let person:object
+    await admin.findOne({username: username, password: password}, {}, {})
+        .then((object) => {
+            person=object
+        }).catch((err) => {
+            if (err) throw err
         })
-    console.log(error)
-    return {person: person, error: error}
+    console.log(person)
+    return {data:person}
 }
