@@ -12,8 +12,12 @@ export class person {
 }
 
 export var schema = buildSchema(`
+type person {
+    username: String
+    password: String
+  }
   type Query {
-    get: String
+    get: person
   }
 `);
 
