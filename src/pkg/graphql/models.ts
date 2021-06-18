@@ -17,7 +17,7 @@ type person {
     password: String
   }
   type Query {
-    get: person
+    get(username: String,password: String): person
   }
 `);
 
